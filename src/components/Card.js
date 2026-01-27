@@ -53,4 +53,27 @@ export default function Card({ card, onDelete, disabled }) {
                         border: "none",
                         backgroundColor: "#f44336",
                         color: "#fff",
-                        cursor: disabled ? "not-al
+                        cursor: disabled ? "not-allowed" : "pointer",
+                    }}
+                >
+                    {disabled ? "Deleting..." : "Delete"}
+                </button>
+
+                <button
+                    onClick={() => navigate(`/editCard/${card.id}`)}
+                    style={{
+                        flex: 1,
+                        padding: "6px",
+                        borderRadius: "4px",
+                        border: "none",
+                        backgroundColor: "#4CAF50",
+                        color: "#fff",
+                        cursor: "pointer",
+                    }}
+                >
+                    Edit
+                </button>
+            </div>
+        </div>
+    );
+}

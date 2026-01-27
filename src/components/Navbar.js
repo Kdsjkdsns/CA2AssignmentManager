@@ -21,7 +21,7 @@ export default function Navbar() {
                     Home
                 </NavLink>
                 <NavLink
-                    to="/allcards"
+                    to="/allCard"
                     className={({ isActive }) => (isActive ? "active" : "")}
                 >
                     Assignments

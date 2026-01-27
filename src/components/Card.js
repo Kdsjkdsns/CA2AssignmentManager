@@ -4,60 +4,65 @@ export default function Card({ card, onDelete, disabled }) {
     const navigate = useNavigate();
 
     return (
-        return (
-    <div
-        className="card"
-        style={{
-            border: "1px solid #ccc",
-            padding: "12px",
-            borderRadius: "6px",
-            width: "180px",
-            textAlign: "center",
-        }}
-    >
-        {/* Assignment info in ONE ROW */}
         <div
+            className="card"
             style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginBottom: "8px",
-                textAlign: "left",
+                border: "1px solid #ccc",
+                padding: "12px",
+                borderRadius: "6px",
+                width: "180px",
+                textAlign: "center",
             }}
         >
-            <h3 style={{ margin: 0, flex: 2 }}>
-                {assignments.assignmentname || "No Title"}
-            </h3>
+            {/* ROW 1: Assignment info */}
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "8px",
+                    textAlign: "left",
+                }}
+            >
+                <h3 style={{ margin: 0, flex: 2 }}>
+                    {card.assignmentname || "No Title"}
+                </h3>
 
-            <div style={{ flex: 1 }}>
-                {assignments.duedate || "No Due Date"}
+                <div style={{ flex: 1 }}>
+                    {card.duedate || "No Due Date"}
+                </div>
+
+                <div style={{ flex: 1 }}>
+                    {card.status || "No Status"}
+                </div>
             </div>
 
-            <div style={{ flex: 1 }}>
-                {assignments.status || "No Status"}
-            </div>
-        </div>
+            {/* ROW 2: Image */}
+            {card.cardpic ? (
+                <img
+                    src={card.cardpic}
+                    alt={card.cardname || "Card image"}
+                    width="150"
+                    height="200"
+                    style={{ marginBottom: "8px" }}
+                />
+            ) : (
+                <div style={{ marginBottom: "8px" }}>No Image</div>
+            )}
 
-        {/* Leave this untouched */}
-        {card.cardpic ? (
-            <img
-                src={card.cardpic}
-                alt={card.cardname || "Card image"}
-                width="150"
-                height="200"
-            />
-        ) : (
-            <div>No Image</div>
-        )}
-
-            {/* Buttons side by side */}
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px" }}>
+            {/* ROW 4: Buttons */}
+            <div
+                style={{
+                    display: "flex",
+                    gap: "8px",          // 👈 spacing so they don't touch
+                    marginTop: "8px",
+                }}
+            >
                 <button
                     onClick={onDelete}
                     disabled={disabled}
                     style={{
                         flex: 1,
-                        marginRight: "4px",
                         padding: "6px",
                         borderRadius: "4px",
                         border: "none",
@@ -73,7 +78,6 @@ export default function Card({ card, onDelete, disabled }) {
                     onClick={() => navigate(`/editCard/${card.id}`)}
                     style={{
                         flex: 1,
-                        marginLeft: "4px",
                         padding: "6px",
                         borderRadius: "4px",
                         border: "none",

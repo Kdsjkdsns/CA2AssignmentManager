@@ -7,9 +7,11 @@ export default function AddCard() {
   const navigate = useNavigate();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  
   const [cardData, setCardData] = useState({
-    cardname: "", // CHANGED: card_name → cardname
-    cardpic: ""   // CHANGED: card_pic → cardpic
+    assignmentname: "", 
+    cardpic: "",
+    status: "Pending",
   });
 
   useEffect(() => {
@@ -21,12 +23,11 @@ export default function AddCard() {
     try {
       setBusy(true);
       setError("");
-      console.log("Submitting data:", data); // Debug log
       await addCard(data);
       navigate("/allCard");
     } catch (err) {
-      console.error("Error adding card:", err); // Debug log
-      setError("Failed to add card"); 
+      console.error(err);
+      setError("Failed to add assignment");
     } finally {
       setBusy(false);
     }
@@ -34,14 +35,14 @@ export default function AddCard() {
 
   return (
     <main>
-      <h1>Add New Card</h1>
+      <h1>Add Assignment</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <CardForm
         values={cardData}
         onChange={setCardData}
         onSubmit={() => handleSubmit(cardData)}
         busy={busy}
-        submitText="Add Card"
+        submitText="Add Assignment"
       />
     </main>
   );

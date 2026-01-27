@@ -35,7 +35,7 @@ export default function CardList() {
       <h2>All Cards</h2>
 
       <div style={styles.grid}>
-        {cards.map(card => (
+        {assignments.map(card => (
           <Card
             key={card.id}
             card={card}

@@ -14,7 +14,7 @@ export async function login(credentials) {
 }
 
 export async function getCards() {
-    const res = await fetch(`${API_BASE_URL}/allcards`);
+    const res = await fetch(`${API_BASE_URL}/allCard`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
 }

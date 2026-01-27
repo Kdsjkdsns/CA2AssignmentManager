@@ -23,41 +23,49 @@ export default function CardForm({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      
+    <form onSubmit={handleSubmit}>      
       <div>
-        <label htmlFor="cardname">Card Name</label>
+        <label>Assignment Name</label>
         <input
           type="text"
-          id="cardname"
-          name="cardname"  // MUST match: cardname
-          value={values.cardname || ""}
+          name="assignmentname" 
+          value={values.assignmentname || ""}
           onChange={handleChange}
           required
           disabled={busy}
-          placeholder="Enter card name"
+          placeholder="Enter assignment name"
         />
       </div>
       
       <div>
-        <label htmlFor="cardpic">Picture URL</label>
+        <label>Due Date</label>
         <input
-          type="url"
-          id="cardpic"
-          name="cardpic"  // MUST match: cardpic
-          value={values.cardpic || ""}
+          type="date"
+          name="duedate"  
+          value={values.duedate || ""}
           onChange={handleChange}
+          required
           disabled={busy}
-          placeholder="https://example.com/image.jpg"
+          placeholder="DD-MM-YYYY"
         />
       </div>
 
       <div>
+        <label>Status</label>
+        <select
+          name="status"
+          value={values.status || "Pending"}
+          onChange={handleChange}
+          disabled={busy}
+        >
+          <option value="Pending">Pending</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+
         <button type="submit" disabled={busy}>
           {busy ? "Saving..." : submitText}
         </button>
-      </div>
     </form>
   );
 };

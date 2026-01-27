@@ -11,7 +11,6 @@ export default function Card({ card, onDelete, disabled }) {
                 padding: "12px",
                 borderRadius: "6px",
                 width: "180px",
-                textAlign: "center",
             }}
         >
             {/* ROW 1: Assignment info */}
@@ -21,12 +20,11 @@ export default function Card({ card, onDelete, disabled }) {
                     justifyContent: "space-between",
                     alignItems: "center",
                     marginBottom: "8px",
-                    textAlign: "left",
                 }}
             >
-                <h3 style={{ margin: 0, flex: 2 }}>
-                    {card.assignmentname || "No Title"}
-                </h3>
+                <div style={{ flex: 2 }}>
+                    <strong>{card.assignmentname || "No Title"}</strong>
+                </div>
 
                 <div style={{ flex: 1 }}>
                     {card.duedate || "No Due Date"}
@@ -37,24 +35,11 @@ export default function Card({ card, onDelete, disabled }) {
                 </div>
             </div>
 
-            {/* ROW 2: Image */}
-            {card.cardpic ? (
-                <img
-                    src={card.cardpic}
-                    alt={card.cardname || "Card image"}
-                    width="150"
-                    height="200"
-                    style={{ marginBottom: "8px" }}
-                />
-            ) : (
-                <div style={{ marginBottom: "8px" }}>No Image</div>
-            )}
-
-            {/* ROW 4: Buttons */}
+            {/* ROW 2: Buttons */}
             <div
                 style={{
                     display: "flex",
-                    gap: "8px",          // 👈 spacing so they don't touch
+                    gap: "8px",
                     marginTop: "8px",
                 }}
             >
@@ -68,27 +53,4 @@ export default function Card({ card, onDelete, disabled }) {
                         border: "none",
                         backgroundColor: "#f44336",
                         color: "#fff",
-                        cursor: disabled ? "not-allowed" : "pointer",
-                    }}
-                >
-                    {disabled ? "Deleting..." : "Delete"}
-                </button>
-
-                <button
-                    onClick={() => navigate(`/editCard/${card.id}`)}
-                    style={{
-                        flex: 1,
-                        padding: "6px",
-                        borderRadius: "4px",
-                        border: "none",
-                        backgroundColor: "#4CAF50",
-                        color: "#fff",
-                        cursor: "pointer",
-                    }}
-                >
-                    Edit
-                </button>
-            </div>
-        </div>
-    );
-}
+                        cursor: disabled ? "not-al

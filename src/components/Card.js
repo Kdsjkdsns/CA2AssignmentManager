@@ -4,28 +4,51 @@ export default function Card({ card, onDelete, disabled }) {
     const navigate = useNavigate();
 
     return (
+        return (
+    <div
+        className="card"
+        style={{
+            border: "1px solid #ccc",
+            padding: "12px",
+            borderRadius: "6px",
+            width: "180px",
+            textAlign: "center",
+        }}
+    >
+        {/* Assignment info in ONE ROW */}
         <div
-            className="card"
             style={{
-                border: "1px solid #ccc",
-                padding: "12px",
-                borderRadius: "6px",
-                width: "180px",
-                textAlign: "center",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "8px",
+                textAlign: "left",
             }}
         >
-            <h3>{card.cardname || "No Title"}</h3>
+            <h3 style={{ margin: 0, flex: 2 }}>
+                {assignments.assignmentname || "No Title"}
+            </h3>
 
-            {card.cardpic ? (
-                <img
-                    src={card.cardpic}
-                    alt={card.cardname || "Card image"}
-                    width="150"
-                    height="200"
-                />
-            ) : (
-                <div>No Image</div>
-            )}
+            <div style={{ flex: 1 }}>
+                {assignments.duedate || "No Due Date"}
+            </div>
+
+            <div style={{ flex: 1 }}>
+                {assignments.status || "No Status"}
+            </div>
+        </div>
+
+        {/* Leave this untouched */}
+        {card.cardpic ? (
+            <img
+                src={card.cardpic}
+                alt={card.cardname || "Card image"}
+                width="150"
+                height="200"
+            />
+        ) : (
+            <div>No Image</div>
+        )}
 
             {/* Buttons side by side */}
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px" }}>

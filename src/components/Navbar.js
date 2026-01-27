@@ -24,13 +24,13 @@ export default function Navbar() {
                     to="/allCard"
                     className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                    Cards
+                    Assignments
                 </NavLink>
                 <NavLink
                     to="/addcard"
                     className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                    Add Card
+                    Add Assignment
                 </NavLink>
                 {token ? (
                     <button onClick={handleLogout}>Logout</button>

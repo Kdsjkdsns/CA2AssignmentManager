@@ -29,16 +29,20 @@ export default function EditCard() {
     };
 
     return (
-        <main>
-            <h1>Edit Card</h1>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <CardForm
-                values={assignmentData}
-                onChange={setAssignmentData}
-                onSubmit={handleSubmit}
-                busy={busy}
-                submitText="Update Assignment"
-            />
-        </main>
+      <main className="edit-page">
+        <div className="edit-container">
+          <h1 className="edit-title">Edit Card</h1>
+
+          {error && <p className="edit-error">{error}</p>}
+
+          <CardForm
+            values={assignmentData}
+            onChange={setAssignmentData}
+            onSubmit={handleSubmit}
+            busy={busy}
+            submitText="Update Assignment"
+          />
+        </div>
+      </main>
     );
 }

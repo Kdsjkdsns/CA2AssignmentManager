@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { getCards, deleteCard } from "../services/api";
-import '../App.css';
 
 export default function CardList() {
   const [cards, setCards] = useState([]);
@@ -32,23 +31,24 @@ export default function CardList() {
   if (error) return <main>{error}</main>;
 
   return (
-  <main className="cardlist-page">
-    <div className="cardlist-container">
-      <h2 className="cardlist-title">All Cards</h2>
+    <main className="cardlist-page">
+      <div className="cardlist-container">
+        <h2 className="cardlist-title">All Cards</h2>
 
-      {loading && <p className="cardlist-status">Loading...</p>}
-      {error && <p className="cardlist-status error">{error}</p>}
+        {loading && <p className="cardlist-status">Loading...</p>}
+        {error && <p className="cardlist-status error">{error}</p>}
 
-      <div className="cardlist-grid">
-        {cards.map(card => (
-          <Card
-            key={card.id}
-            card={card}
-            onDelete={() => handleDelete(card)}
-            disabled={busy}
-          />
-        ))}
+        <div className="cardlist-grid">
+          {cards.map(card => (
+            <Card
+              key={card.id}
+              card={card}
+              onDelete={() => handleDelete(card)}
+              disabled={busy}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  </main>
-);
+    </main>
+  );
+}

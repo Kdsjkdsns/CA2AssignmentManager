@@ -31,10 +31,14 @@ export default function CardList() {
   if (error) return <main>{error}</main>;
 
   return (
-    <main style={styles.container}>
-      <h2>All Cards</h2>
+  <main className="cardlist-page">
+    <div className="cardlist-container">
+      <h2 className="cardlist-title">All Cards</h2>
 
-      <div style={styles.grid}>
+      {loading && <p className="cardlist-status">Loading...</p>}
+      {error && <p className="cardlist-status error">{error}</p>}
+
+      <div className="cardlist-grid">
         {cards.map(card => (
           <Card
             key={card.id}
@@ -44,17 +48,6 @@ export default function CardList() {
           />
         ))}
       </div>
-    </main>
-  );
-}
-
-const styles = {
-  container: {
-    padding: "2rem",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-    gap: "1rem",
-  },
-};
+    </div>
+  </main>
+);

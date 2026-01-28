@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { getCards, deleteCard } from "../services/api";
+import './App.css';
 
 export default function CardList() {
   const [cards, setCards] = useState([]);

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Card({ card, onDelete, disabled }) {
+export default function Assignment({ assignment, onDelete, disabled }) {
     const navigate = useNavigate();
 
     return (
@@ -8,14 +8,14 @@ export default function Card({ card, onDelete, disabled }) {
             <div className="card-grid">
                 {/* Column 1: Assignment Name */}
                 <div className="card-column card-name">
-                    <strong>{card.assignmentname || "No Title"}</strong>
+                    <strong>{assignment.assignmentname || "No Title"}</strong>
                 </div>
 
                 {/* Column 2: Due Date */}
-                <div className="card-column">{card.duedate || "No Due Date"}</div>
+                <div className="card-column">{assignment.duedate || "No Due Date"}</div>
 
                 {/* Column 3: Status */}
-                <div className="card-column">{card.status || "No Status"}</div>
+                <div className="card-column">{assignment.status || "No Status"}</div>
 
                 {/* Column 4: Buttons */}
                 <div className="card-column card-actions">
@@ -27,7 +27,7 @@ export default function Card({ card, onDelete, disabled }) {
                         {disabled ? "Deleting..." : "Delete"}
                     </button>
                     <button
-                        onClick={() => navigate(`/editCard/${card.id}`)}
+                        onClick={() => navigate(`/editAssignment/${assignment.id}`)}
                         className="card-btn edit-btn"
                     >
                         Edit

@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import CardList from "./pages/CardList";
 import AddCard from "./pages/AddCard";
 import EditCard from "./pages/EditCard";
-import Login from "./pages/login"
+import Login from "./pages/login";
+import './App.css';
 
 function App() {
   return (

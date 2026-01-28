@@ -554,7 +554,7 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: 2fr 1.2fr 1fr auto; /* auto for buttons column */
+    grid-template-columns: auto auto auto auto; /* auto for buttons column */
     align-items: center;
     gap: 8px;
 }

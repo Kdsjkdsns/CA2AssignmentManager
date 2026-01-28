@@ -554,10 +554,11 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: auto auto auto auto; /* auto for buttons column */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     align-items: center;
     gap: 8px;
 }
+
 
 
 .card-column {

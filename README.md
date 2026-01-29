@@ -4,7 +4,7 @@ CA2 Assignment Manager
 
 Ideation Details
 Students cannot manage their time when there are too many assignments due in the close future.
-Our app allows users to track assignments and their duedate + completion status.
+Our app allows users to track assignments and their duedate + completion status, the assignment with closest duedate is always on top and completed assignments go to the bottom.
 
 ## Routes (Required)
 

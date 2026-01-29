@@ -18,7 +18,7 @@ export default function AssignmentList() {
     const handleDelete = async (assignment) => {
         setBusy(true);
         try {
-            await deleteCard(assignment.id); // Still calling deleteCard
+            await deleteAssignment(assignment.id);
             setAssignments(assignments.filter(a => a.id !== assignment.id));
         } catch {
             setError("Failed to delete assignment");

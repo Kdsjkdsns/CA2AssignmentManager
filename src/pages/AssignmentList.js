@@ -9,7 +9,7 @@ export default function AssignmentList() {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        getCards() // Still calling getCards
+        getAssignments()
             .then(setAssignments)
             .catch(() => setError("Failed to load assignments"))
             .finally(() => setLoading(false));

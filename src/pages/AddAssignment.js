@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AssignmentForm from "../components/AssignmentForm";
 import { addAssignment } from "../services/api"; 
@@ -10,7 +10,7 @@ export default function AddAssignment() {
 
     const [assignmentData, setAssignmentData] = useState({
         assignmentname: "",
-        cardpic: "",
+        duedate: "",
         status: "Pending",
     });
 
@@ -34,16 +34,20 @@ export default function AddAssignment() {
     };
 
     return (
-        <main>
-            <h1>Add Assignment</h1>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <AssignmentForm
-                values={assignmentData}
-                onChange={setAssignmentData}
-                onSubmit={() => handleSubmit(assignmentData)}
-                busy={busy}
-                submitText="Add Assignment"
-            />
+        <main className="edit-page">
+            <div className="edit-container">
+                <h1 className="edit-title">Add Assignment</h1>
+
+                {error && <p className="edit-error">{error}</p>}
+
+                <AssignmentForm
+                    values={assignmentData}
+                    onChange={setAssignmentData}
+                    onSubmit={() => handleSubmit(assignmentData)}
+                    busy={busy}
+                    submitText="Add Assignment"
+                />
+            </div>
         </main>
     );
 }

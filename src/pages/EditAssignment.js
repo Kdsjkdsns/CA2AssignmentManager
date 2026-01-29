@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AssignmentForm from "../components/AssignmentForm";
-import { updateCard } from "../services/api"; // Keep as updateCard
+import { updateAssignment } from "../services/api"; // Keep as updateCard
 
 export default function EditAssignment() {
     const navigate = useNavigate();

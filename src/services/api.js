@@ -1,40 +1,33 @@
 const API_BASE_URL = process.env.REACT_APP_API_URL || "";
 
-function authHeader() {
-    const token = localStorage.getItem("token");
-    return token ? { Authorization: `Bearer ${token}` } : {};
-}
-
-export async function login(credentials) {
-    return fetch(`${API_BASE_URL}/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(credentials),
-    });
-}
-
-export async function getCards() {
-    const res = await fetch(`${API_BASE_URL}/allCard`);
+// GET all assignments
+export async function getAssignments() {
+    const res = await fetch(`${API_BASE_URL}/assignments`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
 }
 
-export function addCard(card) {
-    return fetch(`${API_BASE_URL}/addcard`, {
+// ADD a new assignment
+export function addAssignment(assignment) {
+    return fetch(`${API_BASE_URL}/assignments`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...authHeader() },
-        body: JSON.stringify(card),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(assignment),
     });
 }
 
-export function updateCard(id, card) {
-    return fetch(`${API_BASE_URL}/updatecard/${id}`, {
+// UPDATE an assignment
+export function updateAssignment(id, assignment) {
+    return fetch(`${API_BASE_URL}/assignments/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(card),
+        body: JSON.stringify(assignment),
     });
 }
 
-export function deleteCard(id) {
-    return fetch(`${API_BASE_URL}/deletecard/${id}`, { method: "DELETE" });
+// DELETE an assignment
+export function deleteAssignment(id) {
+    return fetch(`${API_BASE_URL}/assignments/${id}`, {
+        method: "DELETE",
+    });
 }

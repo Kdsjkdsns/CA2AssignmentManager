@@ -11,7 +11,7 @@ export default function Navbar() {
 
     return (
         <header className="navbar">
-            <div className="navbar__brand">Card App</div>
+            <div className="navbar__brand">Assignment Manager</div>
             <nav className="navbar__links">
                 <NavLink
                     to="/"
@@ -21,13 +21,13 @@ export default function Navbar() {
                     Home
                 </NavLink>
                 <NavLink
-                    to="/allCard"
+                    to="/AssignmentList"
                     className={({ isActive }) => (isActive ? "active" : "")}
                 >
                     Assignments
                 </NavLink>
                 <NavLink
-                    to="/addcard"
+                    to="/AddAssignment"
                     className={({ isActive }) => (isActive ? "active" : "")}
                 >
                     Add Assignment

@@ -10,7 +10,7 @@ export default function EditAssignment() {
     const [error, setError] = useState("");
     const [assignmentData, setAssignmentData] = useState({
         assignmentname: "",
-        cardpic: "",
+        duedate: "",
         status: ""
     });
 
@@ -18,7 +18,7 @@ export default function EditAssignment() {
         try {
             setBusy(true);
             setError("");
-            await updateCard(id, assignmentData); // Still calling updateCard
+            await updateAssignment(id, assignmentData);
             navigate("/allAssignments");
         } catch (err) {
             console.error(err);

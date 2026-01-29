@@ -23,7 +23,7 @@ export default function AddAssignment() {
         try {
             setBusy(true);
             setError("");
-            await addCard(data); // Still calling addCard
+            await addAssignment(data);
             navigate("/allAssignments");
         } catch (err) {
             console.error(err);

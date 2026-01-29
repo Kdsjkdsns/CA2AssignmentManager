@@ -2,6 +2,10 @@ CA2 Assignment Manager
 
 ---
 
+Ideation Details
+Students cannot manage their time when there are too many assignments due in the close future.
+Our app allows users to track assignments and their duedate + completion status.
+
 ## Routes (Required)
 
 - `/` Home

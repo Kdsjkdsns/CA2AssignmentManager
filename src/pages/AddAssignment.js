@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import AssignmentForm from "../components/AssignmentForm";
-import { addCard } from "../services/api"; // Keep as addCard
+import { addAssignment } from "../services/api"; 
 
 export default function AddAssignment() {
     const navigate = useNavigate();

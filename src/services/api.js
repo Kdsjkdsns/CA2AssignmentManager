@@ -31,3 +31,12 @@ export function deleteAssignment(id) {
         method: "DELETE",
     });
 }
+
+// LOGIN
+export function login(credentials) {
+    return fetch(`${API_BASE_URL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(credentials),
+    });
+}

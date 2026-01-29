@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAssignments, deleteAssignment } from "../services/api";
+import Assignment from "../components/Assignment"; // your existing component
 import { useNavigate } from "react-router-dom";
 
 export default function AssignmentList() {
@@ -12,13 +13,11 @@ export default function AssignmentList() {
             try {
                 const data = await getAssignments();
 
-                // Sort assignments
+                // Sort: Pending first by earliest due date, then Completed
                 const sorted = data.sort((a, b) => {
                     if (a.status === b.status) {
-                        // If both have same status, sort by due date
                         return new Date(a.duedate) - new Date(b.duedate);
                     }
-                    // Pending first
                     return a.status === "Pending" ? -1 : 1;
                 });
 
@@ -47,15 +46,16 @@ export default function AssignmentList() {
             <h1>All Assignments</h1>
             {error && <p className="edit-error">{error}</p>}
 
-            <ul>
-                {assignments.map((a) => (
-                    <li key={a.id} style={{ marginBottom: "12px" }}>
-                        <strong>{a.assignmentname}</strong> - {a.duedate} - {a.status}
-                        <button onClick={() => navigate(`/edit/${a.id}`)}>Edit</button>
-                        <button onClick={() => handleDelete(a.id)}>Delete</button>
-                    </li>
+            <div className="assignment-grid">
+                {assignments.map((assignment) => (
+                    <Assignment
+                        key={assignment.id}
+                        assignment={assignment}
+                        onDelete={() => handleDelete(assignment.id)}
+                        onEdit={() => navigate(`/edit/${assignment.id}`)}
+                    />
                 ))}
-            </ul>
+            </div>
         </main>
     );
 }

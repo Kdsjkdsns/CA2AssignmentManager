@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Assignment from "../components/Assignment";
-import { getCards, deleteCard } from "../services/api"; // Keep as getCards, deleteCard
+import { getAssignments, addAssignment } from "../services/api"; // Keep as getCards, deleteCard
 
 export default function AssignmentList() {
     const [assignments, setAssignments] = useState([]);

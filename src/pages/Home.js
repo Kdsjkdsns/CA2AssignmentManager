@@ -22,7 +22,7 @@ export default function Home() {
                     </div>
 
                     <div className="home-actions">
-                        <Link to="/AssignmentList" className="home-button primary">
+                        <Link to="/allAssignments" className="home-button primary">
                             View Assignments
                         </Link>
                         <Link to="/AddAssignment" className="home-button secondary">

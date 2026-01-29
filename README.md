@@ -23,3 +23,7 @@ Expected assignment JSON shape:
 { "id": 1, "assignmentname": "aaa", "duedate": "2026-01-31", "status": "Pending" }
 ```
 
+Work done:
+QiYan: AddAssignment / AssignmentForm / Home
+Matthew: Server / Assignment / Api
+ChunLin: Navbar / EditAssignment / App / Styles (App.css) / Login
